@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_fiap_aula1/Language.dart';
 
 class AddLanguage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -9,6 +10,9 @@ class AddLanguage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Nova Linguagem"),
+      ),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Form(
@@ -22,7 +26,13 @@ class AddLanguage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: RaisedButton(
                   onPressed: () {
-                    if (_formKey.currentState.validate()) {}
+                    if (_formKey.currentState.validate()) {
+                      Language language = Language(
+                          _nameController.text,
+                          _detailController.text
+                      );
+                      Navigator.pop(context, language);
+                    }
                   },
                   child: Text('Gravar'),
                 ),

@@ -82,7 +82,10 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add_circle_outline),
         onPressed: () {
-          Navigator.pushNamed(context, "/add");
+          Future future = Navigator.pushNamed(context, "/add");
+          future.then((value) {
+
+          });
         },
       ),
     );
